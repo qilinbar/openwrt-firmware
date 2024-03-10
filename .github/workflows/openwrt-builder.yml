@@ -69,6 +69,10 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+      
+    - name: golang 1.22
+      run: rm -rf feeds/packages/lang/golang
+           git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
     - name: Load custom configuration
       run: |
